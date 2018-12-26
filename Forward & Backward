@@ -1,0 +1,57 @@
+int E1=10;  // Enable Pin 
+int I1=9;  // Control pin 1 
+int I2=8; // Control pin  2
+int E2=5;  // Enable Pin 
+int I3=6;  // Control pin 3
+int I4=7; // Control pin  4
+
+void setup() {
+pinMode(E1, OUTPUT);
+pinMode(I1, OUTPUT);
+pinMode(I2, OUTPUT);
+pinMode(E2, OUTPUT);
+pinMode(I3, OUTPUT);
+pinMode(I4, OUTPUT);
+}
+//a==1 right motor
+//a==2 left motor
+void forward(int a)
+{
+  if (a==1)
+  {
+    analogWrite(E1,153);
+    digitalWrite(I1,HIGH);
+    digitalWrite(I2,LOW);
+  }
+  if (a==2)
+  {
+    analogWrite(E2,153);
+    digitalWrite(I3,HIGH);
+    digitalWrite(I4,LOW);
+  }  
+}
+void back(int a)
+{
+  if (a==1)
+  {
+    analogWrite(E1,153);
+    digitalWrite(I1,LOW);
+    digitalWrite(I2,HIGH);
+  }
+  if (a==2)
+  {
+    analogWrite(E2,153);
+    digitalWrite(I3,LOW);
+    digitalWrite(I4,HIGH);
+  }
+}
+void loop() {
+  forward(1);
+  delay(10000);
+  back(1);
+  delay(10000);
+  forward(2);
+  delay(10000);
+  back(2);
+  delay(10000);
+}
